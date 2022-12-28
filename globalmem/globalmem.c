@@ -15,6 +15,7 @@ module_param(globalmem_major, int , S_IRUGO);
 struct globalmem_dev {
 	struct cdev cdev;
 	unsigned char mem[GLOBALMEM_SIZE];
+	struct mutex mutex;
 };
 
 static ssize_t
@@ -31,7 +32,7 @@ globalmem_read(struct file *filp, char __user *buf, size_t size, loff_t *ppos)
 	if (count > GLOBALMEM_SIZE - p) {
 		count = GLOBALMEM_SIZE - p;
 	}
-
+	mutex_lock(&dev->mutex);
 	if (copy_to_user(buf, dev->mem + p, count)) {
 		ret = -EFAULT;
 	} else {
@@ -39,6 +40,7 @@ globalmem_read(struct file *filp, char __user *buf, size_t size, loff_t *ppos)
 		ret = count;
 		printk(KERN_INFO "read %u bytes(s) from %lu\n", count, p);
 	}
+	mutex_unlock(&dev->mutex);
 	return ret;
 }
 
@@ -57,7 +59,7 @@ globalmem_write(struct file *filp, const char __user *buf, size_t size, loff_t *
 	if (count > GLOBALMEM_SIZE - p) {
 		count = GLOBALMEM_SIZE - p;
 	}
-
+	mutex_lock(&dev->mutex);
 	if (copy_from_user(dev->mem + p, buf, count)) {
 		ret = -EFAULT;
 	} else {
@@ -65,6 +67,7 @@ globalmem_write(struct file *filp, const char __user *buf, size_t size, loff_t *
 		ret = count;
 		printk(KERN_INFO "write %u bytes(s) from %lu\n", count, p);
 	}
+	mutex_unlock(&dev->mutex);
 	return ret;
 }
 
@@ -174,7 +177,7 @@ static int __init globalmem_init(void)
 		ret = -ENOMEM;
 		goto fail_malloc;
 	}
-
+	mutex_init(&g_globalmem_devp->mutex);
 	globalmem_setup_cdev(g_globalmem_devp, 0);
 	return 0;
 
