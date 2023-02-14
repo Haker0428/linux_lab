@@ -1,0 +1,76 @@
+
+gcov.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000000000 <hello_export_func>:
+   0:	d503201f 	nop
+   4:	d503201f 	nop
+#include <linux/init.h>
+#include <linux/module.h>
+
+
+int hello_export_func(void)
+{
+   8:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+   c:	910003fd 	mov	x29, sp
+	printk("hello export func");
+  10:	90000000 	adrp	x0, 0 <hello_export_func>
+  14:	91000000 	add	x0, x0, #0x0
+  18:	94000000 	bl	0 <printk>
+	return 0;	
+  1c:	52800000 	mov	w0, #0x0                   	// #0
+}
+  20:	a8c17bfd 	ldp	x29, x30, [sp], #16
+  24:	d65f03c0 	ret
+
+Disassembly of section .init.text:
+
+0000000000000000 <init_module>:
+   0:	d503201f 	nop
+   4:	d503201f 	nop
+EXPORT_SYMBOL(hello_export_func);
+
+static int __init hello_init(void)
+{	
+   8:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+   c:	910003fd 	mov	x29, sp
+	int a = 0;
+  10:	b9001fff 	str	wzr, [sp, #28]
+	printk("my first kernel module init\n");
+  14:	90000000 	adrp	x0, 0 <init_module>
+  18:	91000000 	add	x0, x0, #0x0
+  1c:	94000000 	bl	0 <printk>
+
+	if (a) {
+  20:	b9401fe0 	ldr	w0, [sp, #28]
+  24:	7100001f 	cmp	w0, #0x0
+  28:	54000080 	b.eq	38 <init_module+0x38>  // b.none
+		printk("Hello\n");
+  2c:	90000000 	adrp	x0, 0 <init_module>
+  30:	91000000 	add	x0, x0, #0x0
+  34:	94000000 	bl	0 <printk>
+	}
+	return 0;
+  38:	52800000 	mov	w0, #0x0                   	// #0
+}
+  3c:	a8c27bfd 	ldp	x29, x30, [sp], #32
+  40:	d65f03c0 	ret
+
+Disassembly of section .exit.text:
+
+0000000000000000 <cleanup_module>:
+
+static void __exit hello_exit(void)
+{
+   0:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+   4:	910003fd 	mov	x29, sp
+	printk("goodbye\n");
+   8:	90000000 	adrp	x0, 0 <cleanup_module>
+   c:	91000000 	add	x0, x0, #0x0
+  10:	94000000 	bl	0 <printk>
+}
+  14:	d503201f 	nop
+  18:	a8c17bfd 	ldp	x29, x30, [sp], #16
+  1c:	d65f03c0 	ret

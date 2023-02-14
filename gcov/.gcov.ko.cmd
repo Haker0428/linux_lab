@@ -1,0 +1,1 @@
+cmd_/home/rlk/Linux/linux_lab/linux_lab/gcov/gcov.ko := aarch64-linux-gnu-ld -r  -EL  -maarch64elf -T ./scripts/module-common.lds -T ./arch/arm64/kernel/module.lds  --build-id  -o /home/rlk/Linux/linux_lab/linux_lab/gcov/gcov.ko /home/rlk/Linux/linux_lab/linux_lab/gcov/gcov.o /home/rlk/Linux/linux_lab/linux_lab/gcov/gcov.mod.o ;  true
