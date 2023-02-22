@@ -27,6 +27,14 @@ __used
 __attribute__((section("__versions"))) = {
 	{ 0xc8a61a2c, "module_layout" },
 	{ 0xc5850110, "printk" },
+	{ 0xe4bbc1dd, "kimage_voffset" },
+	{ 0xe007de41, "kallsyms_lookup_name" },
+	{ 0xdecd0b29, "__stack_chk_fail" },
+	{ 0x7fd0b7cf, "cpu_hwcaps" },
+	{ 0x2fee02ba, "cpu_hwcap_keys" },
+	{ 0x4829a47e, "memcpy" },
+	{ 0xb2ead97c, "kimage_vaddr" },
+	{ 0x52da2b65, "arm64_const_caps_ready" },
 };
 
 static const char __module_depends[]

@@ -163,4 +163,91 @@ gcov.o: /home/rlk/Linux/linux_lab/linux_lab/gcov/gcov.c \
  include/linux/moduleparam.h include/linux/rbtree_latch.h \
  include/linux/error-injection.h include/asm-generic/error-injection.h \
  include/linux/tracepoint-defs.h include/linux/static_key.h \
- arch/arm64/include/asm/module.h include/asm-generic/module.h
+ arch/arm64/include/asm/module.h include/asm-generic/module.h \
+ include/linux/kallsyms.h include/linux/mm.h include/linux/mm_types.h \
+ include/linux/auxvec.h include/uapi/linux/auxvec.h \
+ arch/arm64/include/uapi/asm/auxvec.h include/linux/uprobes.h \
+ arch/arm64/include/asm/uprobes.h arch/arm64/include/asm/debug-monitors.h \
+ arch/arm64/include/asm/esr.h arch/arm64/include/asm/probes.h \
+ arch/arm64/include/asm/mmu.h include/linux/range.h \
+ include/linux/percpu-refcount.h include/linux/bit_spinlock.h \
+ include/linux/shrinker.h include/linux/page_ext.h \
+ include/linux/stacktrace.h include/linux/stackdepot.h \
+ include/linux/page_ref.h include/linux/page-flags.h \
+ include/linux/memremap.h include/linux/ioport.h include/linux/overflow.h \
+ arch/arm64/include/asm/pgtable.h arch/arm64/include/asm/proc-fns.h \
+ arch/arm64/include/asm/pgtable-prot.h arch/arm64/include/asm/tlbflush.h \
+ arch/arm64/include/asm/fixmap.h arch/arm64/include/asm/boot.h \
+ include/asm-generic/fixmap.h include/asm-generic/pgtable.h \
+ include/linux/huge_mm.h include/linux/sched/coredump.h \
+ include/linux/fs.h include/linux/wait_bit.h include/linux/kdev_t.h \
+ include/uapi/linux/kdev_t.h include/linux/dcache.h \
+ include/linux/rculist_bl.h include/linux/list_bl.h \
+ include/linux/lockref.h include/linux/stringhash.h include/linux/hash.h \
+ include/linux/path.h include/linux/list_lru.h include/linux/capability.h \
+ include/uapi/linux/capability.h include/linux/semaphore.h \
+ include/linux/fcntl.h include/uapi/linux/fcntl.h \
+ arch/arm64/include/uapi/asm/fcntl.h include/uapi/asm-generic/fcntl.h \
+ include/uapi/linux/fiemap.h include/linux/migrate_mode.h \
+ include/linux/percpu-rwsem.h include/linux/rcuwait.h \
+ include/linux/rcu_sync.h include/linux/delayed_call.h \
+ include/linux/uuid.h include/uapi/linux/uuid.h include/linux/errseq.h \
+ include/linux/ioprio.h include/linux/sched/rt.h \
+ include/linux/iocontext.h include/uapi/linux/fs.h \
+ include/uapi/linux/limits.h include/linux/quota.h \
+ include/linux/percpu_counter.h include/uapi/linux/dqblk_xfs.h \
+ include/linux/dqblk_v1.h include/linux/dqblk_v2.h \
+ include/linux/dqblk_qtree.h include/linux/projid.h \
+ include/uapi/linux/quota.h include/linux/nfs_fs_i.h \
+ include/linux/vmstat.h include/linux/vm_event_item.h \
+ include/linux/syscalls.h include/uapi/linux/aio_abi.h \
+ include/linux/signal.h include/linux/key.h include/linux/assoc_array.h \
+ include/trace/syscall.h include/linux/tracepoint.h \
+ include/linux/trace_events.h include/linux/ring_buffer.h \
+ include/linux/seq_file.h include/linux/cred.h include/linux/selinux.h \
+ include/linux/sched/user.h include/linux/ratelimit.h \
+ include/linux/poll.h include/linux/uaccess.h \
+ arch/arm64/include/asm/uaccess.h arch/arm64/include/asm/kernel-pgtable.h \
+ arch/arm64/include/asm/extable.h include/uapi/linux/poll.h \
+ arch/arm64/include/generated/uapi/asm/poll.h \
+ include/uapi/asm-generic/poll.h include/uapi/linux/eventpoll.h \
+ include/linux/trace_seq.h include/linux/seq_buf.h \
+ include/linux/hardirq.h include/linux/ftrace_irq.h include/linux/vtime.h \
+ include/linux/context_tracking_state.h arch/arm64/include/asm/hardirq.h \
+ arch/arm64/include/asm/irq.h include/asm-generic/irq.h \
+ include/linux/irq_cpustat.h include/linux/perf_event.h \
+ include/uapi/linux/perf_event.h include/uapi/linux/bpf_perf_event.h \
+ arch/arm64/include/uapi/asm/bpf_perf_event.h \
+ arch/arm64/include/asm/perf_event.h \
+ arch/arm64/include/generated/asm/local64.h include/asm-generic/local64.h \
+ arch/arm64/include/generated/asm/local.h include/asm-generic/local.h \
+ include/linux/pid_namespace.h include/linux/nsproxy.h \
+ include/linux/ns_common.h include/linux/ftrace.h \
+ include/linux/trace_clock.h \
+ arch/arm64/include/generated/asm/trace_clock.h \
+ include/asm-generic/trace_clock.h include/linux/ptrace.h \
+ include/linux/sched/signal.h include/linux/sched/jobctl.h \
+ include/linux/sched/task.h include/uapi/linux/ptrace.h \
+ arch/arm64/include/asm/ftrace.h include/linux/compat.h \
+ include/linux/socket.h arch/arm64/include/generated/uapi/asm/socket.h \
+ include/uapi/asm-generic/socket.h \
+ arch/arm64/include/generated/uapi/asm/sockios.h \
+ include/uapi/asm-generic/sockios.h include/uapi/linux/sockios.h \
+ include/linux/uio.h include/crypto/hash.h include/linux/crypto.h \
+ include/linux/slab.h include/linux/kasan.h include/uapi/linux/uio.h \
+ include/uapi/linux/socket.h include/uapi/linux/if.h \
+ include/uapi/linux/libc-compat.h include/uapi/linux/hdlc/ioctl.h \
+ arch/arm64/include/asm/syscall_wrapper.h include/linux/cpu.h \
+ include/linux/node.h include/linux/device.h include/linux/klist.h \
+ include/linux/pm.h arch/arm64/include/asm/device.h \
+ include/linux/pm_wakeup.h include/linux/cpuhotplug.h \
+ include/linux/irq_work.h arch/arm64/include/asm/irq_work.h \
+ include/linux/jump_label_ratelimit.h include/linux/perf_regs.h \
+ arch/arm64/include/uapi/asm/perf_regs.h include/linux/cgroup.h \
+ include/uapi/linux/cgroupstats.h include/uapi/linux/taskstats.h \
+ include/linux/user_namespace.h include/linux/kernel_stat.h \
+ include/linux/interrupt.h include/linux/irqreturn.h \
+ include/linux/cgroup-defs.h include/linux/u64_stats_sync.h \
+ include/linux/bpf-cgroup.h include/linux/bpf.h include/uapi/linux/bpf.h \
+ include/uapi/linux/bpf_common.h include/linux/file.h \
+ include/linux/bpf_types.h include/linux/cgroup_subsys.h
