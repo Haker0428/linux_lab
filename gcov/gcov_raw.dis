@@ -1,0 +1,298 @@
+
+gcov.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000000000 <__gcov_exit>:
+   0:	d503201f 	nop
+   4:	d503201f 	nop
+ */
+
+#include <linux/init.h>
+#include <linux/module.h>
+void __gcov_exit(void)
+{
+   8:	90000000 	adrp	x0, 0 <__gcov_exit>
+   c:	91000000 	add	x0, x0, #0x0
+  10:	f9400000 	ldr	x0, [x0]
+  14:	91000401 	add	x1, x0, #0x1
+  18:	90000000 	adrp	x0, 0 <__gcov_exit>
+  1c:	91000000 	add	x0, x0, #0x0
+  20:	f9000001 	str	x1, [x0]
+	/* Unused. */
+}
+  24:	d503201f 	nop
+  28:	d65f03c0 	ret
+
+000000000000002c <__gcov_init>:
+  2c:	d503201f 	nop
+  30:	d503201f 	nop
+
+void __gcov_init(void)
+{
+  34:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+  38:	910003fd 	mov	x29, sp
+  3c:	90000000 	adrp	x0, 0 <__gcov_exit>
+  40:	91000000 	add	x0, x0, #0x0
+  44:	f9400000 	ldr	x0, [x0]
+  48:	91000401 	add	x1, x0, #0x1
+  4c:	90000000 	adrp	x0, 0 <__gcov_exit>
+  50:	91000000 	add	x0, x0, #0x0
+  54:	f9000001 	str	x1, [x0]
+	/* Unused. */
+	printk("__gcov_init\n");
+  58:	90000000 	adrp	x0, 0 <__gcov_exit>
+  5c:	91000000 	add	x0, x0, #0x0
+  60:	94000000 	bl	0 <printk>
+  64:	90000000 	adrp	x0, 0 <__gcov_exit>
+  68:	91000000 	add	x0, x0, #0x0
+  6c:	f9400400 	ldr	x0, [x0, #8]
+  70:	91000401 	add	x1, x0, #0x1
+  74:	90000000 	adrp	x0, 0 <__gcov_exit>
+  78:	91000000 	add	x0, x0, #0x0
+  7c:	f9000401 	str	x1, [x0, #8]
+}
+  80:	d503201f 	nop
+  84:	a8c17bfd 	ldp	x29, x30, [sp], #16
+  88:	d65f03c0 	ret
+
+000000000000008c <__gcov_merge_add>:
+  8c:	d503201f 	nop
+  90:	d503201f 	nop
+
+void __gcov_merge_add(void)
+{
+  94:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+  98:	910003fd 	mov	x29, sp
+  9c:	90000000 	adrp	x0, 0 <__gcov_exit>
+  a0:	91000000 	add	x0, x0, #0x0
+  a4:	f9400000 	ldr	x0, [x0]
+  a8:	91000401 	add	x1, x0, #0x1
+  ac:	90000000 	adrp	x0, 0 <__gcov_exit>
+  b0:	91000000 	add	x0, x0, #0x0
+  b4:	f9000001 	str	x1, [x0]
+	/* Unused. */
+	printk("__gcov_merge_add\n");
+  b8:	90000000 	adrp	x0, 0 <__gcov_exit>
+  bc:	91000000 	add	x0, x0, #0x0
+  c0:	94000000 	bl	0 <printk>
+  c4:	90000000 	adrp	x0, 0 <__gcov_exit>
+  c8:	91000000 	add	x0, x0, #0x0
+  cc:	f9400400 	ldr	x0, [x0, #8]
+  d0:	91000401 	add	x1, x0, #0x1
+  d4:	90000000 	adrp	x0, 0 <__gcov_exit>
+  d8:	91000000 	add	x0, x0, #0x0
+  dc:	f9000401 	str	x1, [x0, #8]
+}
+  e0:	d503201f 	nop
+  e4:	a8c17bfd 	ldp	x29, x30, [sp], #16
+  e8:	d65f03c0 	ret
+
+00000000000000ec <hello_export_func>:
+  ec:	d503201f 	nop
+  f0:	d503201f 	nop
+
+int hello_export_func(void)
+{
+  f4:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+  f8:	910003fd 	mov	x29, sp
+  fc:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 100:	91000000 	add	x0, x0, #0x0
+ 104:	f9400000 	ldr	x0, [x0]
+ 108:	91000401 	add	x1, x0, #0x1
+ 10c:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 110:	91000000 	add	x0, x0, #0x0
+ 114:	f9000001 	str	x1, [x0]
+	int a = 0;
+ 118:	b9001fff 	str	wzr, [sp, #28]
+	printk("my first kernel module init\n");
+ 11c:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 120:	91000000 	add	x0, x0, #0x0
+ 124:	94000000 	bl	0 <printk>
+ 128:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 12c:	91000000 	add	x0, x0, #0x0
+ 130:	f9400400 	ldr	x0, [x0, #8]
+ 134:	91000401 	add	x1, x0, #0x1
+ 138:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 13c:	91000000 	add	x0, x0, #0x0
+ 140:	f9000401 	str	x1, [x0, #8]
+
+	if (a) {
+ 144:	b9401fe0 	ldr	w0, [sp, #28]
+ 148:	7100001f 	cmp	w0, #0x0
+ 14c:	54000240 	b.eq	194 <hello_export_func+0xa8>  // b.none
+ 150:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 154:	91000000 	add	x0, x0, #0x0
+ 158:	f9400800 	ldr	x0, [x0, #16]
+ 15c:	91000401 	add	x1, x0, #0x1
+ 160:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 164:	91000000 	add	x0, x0, #0x0
+ 168:	f9000801 	str	x1, [x0, #16]
+		printk("Hello\n");
+ 16c:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 170:	91000000 	add	x0, x0, #0x0
+ 174:	94000000 	bl	0 <printk>
+ 178:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 17c:	91000000 	add	x0, x0, #0x0
+ 180:	f9400c00 	ldr	x0, [x0, #24]
+ 184:	91000401 	add	x1, x0, #0x1
+ 188:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 18c:	91000000 	add	x0, x0, #0x0
+ 190:	f9000c01 	str	x1, [x0, #24]
+	}
+	
+	a = 1;
+ 194:	52800020 	mov	w0, #0x1                   	// #1
+ 198:	b9001fe0 	str	w0, [sp, #28]
+	if (a) {
+ 19c:	b9401fe0 	ldr	w0, [sp, #28]
+ 1a0:	7100001f 	cmp	w0, #0x0
+ 1a4:	54000160 	b.eq	1d0 <hello_export_func+0xe4>  // b.none
+ 1a8:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 1ac:	91000000 	add	x0, x0, #0x0
+ 1b0:	f9401000 	ldr	x0, [x0, #32]
+ 1b4:	91000401 	add	x1, x0, #0x1
+ 1b8:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 1bc:	91000000 	add	x0, x0, #0x0
+ 1c0:	f9001001 	str	x1, [x0, #32]
+		printk("Hello 2\n");
+ 1c4:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 1c8:	91000000 	add	x0, x0, #0x0
+ 1cc:	94000000 	bl	0 <printk>
+	}
+	return 0;
+ 1d0:	52800002 	mov	w2, #0x0                   	// #0
+ 1d4:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 1d8:	91000000 	add	x0, x0, #0x0
+ 1dc:	f9401400 	ldr	x0, [x0, #40]
+ 1e0:	91000401 	add	x1, x0, #0x1
+ 1e4:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 1e8:	91000000 	add	x0, x0, #0x0
+ 1ec:	f9001401 	str	x1, [x0, #40]
+ 1f0:	2a0203e0 	mov	w0, w2
+}
+ 1f4:	a8c27bfd 	ldp	x29, x30, [sp], #32
+ 1f8:	d65f03c0 	ret
+
+00000000000001fc <_sub_I_00100_0>:
+ 1fc:	d503201f 	nop
+ 200:	d503201f 	nop
+ 204:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+ 208:	910003fd 	mov	x29, sp
+ 20c:	90000000 	adrp	x0, 0 <__gcov_exit>
+ 210:	91000000 	add	x0, x0, #0x0
+ 214:	94000000 	bl	2c <__gcov_init>
+ 218:	a8c17bfd 	ldp	x29, x30, [sp], #16
+ 21c:	d65f03c0 	ret
+
+0000000000000220 <_sub_D_00100_1>:
+ 220:	d503201f 	nop
+ 224:	d503201f 	nop
+ 228:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+ 22c:	910003fd 	mov	x29, sp
+ 230:	94000000 	bl	0 <__gcov_exit>
+ 234:	a8c17bfd 	ldp	x29, x30, [sp], #16
+ 238:	d65f03c0 	ret
+
+Disassembly of section .init.text:
+
+0000000000000000 <init_module>:
+   0:	d503201f 	nop
+   4:	d503201f 	nop
+
+
+static int __init hello_init(void)
+{	
+   8:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+   c:	910003fd 	mov	x29, sp
+  10:	90000000 	adrp	x0, 0 <init_module>
+  14:	91000000 	add	x0, x0, #0x0
+  18:	f9400000 	ldr	x0, [x0]
+  1c:	91000401 	add	x1, x0, #0x1
+  20:	90000000 	adrp	x0, 0 <init_module>
+  24:	91000000 	add	x0, x0, #0x0
+  28:	f9000001 	str	x1, [x0]
+	int a = 0;
+  2c:	b9001fff 	str	wzr, [sp, #28]
+	printk("my first kernel module init\n");
+  30:	90000000 	adrp	x0, 0 <init_module>
+  34:	91000000 	add	x0, x0, #0x0
+  38:	94000000 	bl	0 <printk>
+  3c:	90000000 	adrp	x0, 0 <init_module>
+  40:	91000000 	add	x0, x0, #0x0
+  44:	f9400400 	ldr	x0, [x0, #8]
+  48:	91000401 	add	x1, x0, #0x1
+  4c:	90000000 	adrp	x0, 0 <init_module>
+  50:	91000000 	add	x0, x0, #0x0
+  54:	f9000401 	str	x1, [x0, #8]
+
+	if (a) {
+  58:	b9401fe0 	ldr	w0, [sp, #28]
+  5c:	7100001f 	cmp	w0, #0x0
+  60:	54000240 	b.eq	a8 <init_module+0xa8>  // b.none
+  64:	90000000 	adrp	x0, 0 <init_module>
+  68:	91000000 	add	x0, x0, #0x0
+  6c:	f9400800 	ldr	x0, [x0, #16]
+  70:	91000401 	add	x1, x0, #0x1
+  74:	90000000 	adrp	x0, 0 <init_module>
+  78:	91000000 	add	x0, x0, #0x0
+  7c:	f9000801 	str	x1, [x0, #16]
+		printk("Hello\n");
+  80:	90000000 	adrp	x0, 0 <init_module>
+  84:	91000000 	add	x0, x0, #0x0
+  88:	94000000 	bl	0 <printk>
+  8c:	90000000 	adrp	x0, 0 <init_module>
+  90:	91000000 	add	x0, x0, #0x0
+  94:	f9400c00 	ldr	x0, [x0, #24]
+  98:	91000401 	add	x1, x0, #0x1
+  9c:	90000000 	adrp	x0, 0 <init_module>
+  a0:	91000000 	add	x0, x0, #0x0
+  a4:	f9000c01 	str	x1, [x0, #24]
+	}
+	
+	hello_export_func();
+  a8:	94000000 	bl	ec <hello_export_func>
+  ac:	90000000 	adrp	x0, 0 <init_module>
+  b0:	91000000 	add	x0, x0, #0x0
+  b4:	f9401000 	ldr	x0, [x0, #32]
+  b8:	91000401 	add	x1, x0, #0x1
+  bc:	90000000 	adrp	x0, 0 <init_module>
+  c0:	91000000 	add	x0, x0, #0x0
+  c4:	f9001001 	str	x1, [x0, #32]
+	return 0;
+  c8:	52800000 	mov	w0, #0x0                   	// #0
+}
+  cc:	a8c27bfd 	ldp	x29, x30, [sp], #32
+  d0:	d65f03c0 	ret
+
+Disassembly of section .exit.text:
+
+0000000000000000 <cleanup_module>:
+
+static void __exit hello_exit(void)
+{
+   0:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+   4:	910003fd 	mov	x29, sp
+   8:	90000000 	adrp	x0, 0 <cleanup_module>
+   c:	91000000 	add	x0, x0, #0x0
+  10:	f9400000 	ldr	x0, [x0]
+  14:	91000401 	add	x1, x0, #0x1
+  18:	90000000 	adrp	x0, 0 <cleanup_module>
+  1c:	91000000 	add	x0, x0, #0x0
+  20:	f9000001 	str	x1, [x0]
+	printk("goodbye\n");
+  24:	90000000 	adrp	x0, 0 <cleanup_module>
+  28:	91000000 	add	x0, x0, #0x0
+  2c:	94000000 	bl	0 <printk>
+  30:	90000000 	adrp	x0, 0 <cleanup_module>
+  34:	91000000 	add	x0, x0, #0x0
+  38:	f9400400 	ldr	x0, [x0, #8]
+  3c:	91000401 	add	x1, x0, #0x1
+  40:	90000000 	adrp	x0, 0 <cleanup_module>
+  44:	91000000 	add	x0, x0, #0x0
+  48:	f9000401 	str	x1, [x0, #8]
+}
+  4c:	d503201f 	nop
+  50:	a8c17bfd 	ldp	x29, x30, [sp], #16
+  54:	d65f03c0 	ret

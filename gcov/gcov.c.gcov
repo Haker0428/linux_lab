@@ -1,0 +1,67 @@
+        -:    0:Source:/home/rlk/Linux/linux_lab/linux_lab/gcov/gcov.c
+        -:    0:Graph:gcov.gcno
+        -:    0:Data:gcov.gcda
+        -:    0:Runs:0
+        -:    1:/*
+        -:    2: * Copyright (c) SkyRain. 2022-2022. All rights reserved.
+        -:    3: * Description:
+        -:    4: * Author: sky rain
+        -:    5: * Create: 2022/12/26
+        -:    6: */
+        -:    7:
+        -:    8:#include <linux/init.h>
+        -:    9:#include <linux/module.h>
+        -:   10:
+        2:   11:int test_func(int dev)
+        -:   12:{
+        2:   13:	if (dev < 0) {
+    #####:   14:		printk("SB 1");
+        -:   15:	} else {
+        2:   16:		printk("SB 2");
+        -:   17:	}
+        2:   18:	return 0;
+        -:   19:}
+        -:   20:EXPORT_SYMBOL(test_func);
+        -:   21:
+        1:   22:int hello_export_func(void)
+        -:   23:{
+        1:   24:	int a = 0;
+        1:   25:	printk("my first kernel module init\n");
+        -:   26:
+        1:   27:	if (a) {
+    #####:   28:		printk("Hello\n");
+        -:   29:	}
+        -:   30:	
+        1:   31:	a = 1;
+        1:   32:	if (a) {
+        1:   33:		printk("Hello 2\n");
+        -:   34:	}
+        1:   35:	return 0;
+        -:   36:}
+        -:   37:
+        -:   38:
+        1:   39:static int __init hello_init(void)
+        -:   40:{	
+        1:   41:	int a = 0;
+        1:   42:	printk("my first kernel module init\n");
+        -:   43:
+        1:   44:	if (a) {
+    #####:   45:		printk("Hello\n");
+        -:   46:	}
+        -:   47:	
+        1:   48:	hello_export_func();
+        1:   49:	return 0;
+        -:   50:}
+        -:   51:
+        1:   52:static void __exit hello_exit(void)
+        -:   53:{
+        1:   54:	printk("goodbye\n");
+        1:   55:}
+        -:   56:
+        -:   57:module_init(hello_init);
+        -:   58:module_exit(hello_exit);
+        -:   59:
+        -:   60:MODULE_LICENSE("GPL");
+        -:   61:MODULE_AUTHOR("skyrain");
+        -:   62:MODULE_DESCRIPTION("my test kernel module");
+        -:   63:MODULE_ALIAS("mytest");
