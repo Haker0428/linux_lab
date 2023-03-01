@@ -1,0 +1,3 @@
+0xa620ce66	__gcov_merge_add	/home/rlk/Linux/linux_lab/linux_lab/gcov_ko/gcov_ko	EXPORT_SYMBOL
+0x23b2c455	__gcov_init	/home/rlk/Linux/linux_lab/linux_lab/gcov_ko/gcov_ko	EXPORT_SYMBOL
+0x84a4b45d	__gcov_exit	/home/rlk/Linux/linux_lab/linux_lab/gcov_ko/gcov_ko	EXPORT_SYMBOL
